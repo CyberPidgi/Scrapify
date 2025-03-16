@@ -10,6 +10,8 @@ import {
 import { TaskType } from '@/types/task'
 import { TaskRegistry } from '@/lib/workflow/task/registry'
 import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { CoinsIcon } from 'lucide-react'
 
 const TaskMenu = () => {
   return (
@@ -38,6 +40,7 @@ const TaskMenu = () => {
             <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
             <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
             <TaskMenuBtn taskType={TaskType.NAVIGATE_TO_URL} />
+            <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} />
           </AccordionContent>
         </AccordionItem>
 
@@ -92,6 +95,10 @@ function TaskMenuBtn({ taskType }: { taskType: TaskType }) {
         <task.icon size={20}/>
         {task.label}
       </div>
+      <Badge className='flex items-center gap-2' variant={'outline'}>
+        <CoinsIcon size={16} />
+        {task.credits}
+      </Badge>
     </Button>
   )
 }
