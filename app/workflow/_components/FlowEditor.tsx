@@ -56,13 +56,13 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
     }
   }, [workflow.definition, setNodes, setEdges, setViewport])
 
-  const onDragOver = useCallback(( event: DragEvent ) => {
+  const onDragOver = useCallback(( event: any ) => {
     event.preventDefault()
     if (!event.dataTransfer) return
     event.dataTransfer.dropEffect = 'move'
   }, [])
 
-  const onDrop = useCallback(( event: DragEvent ) => {
+  const onDrop = useCallback(( event: any ) => {
     event.preventDefault()
     const taskType = event.dataTransfer?.getData('application/reactflow') as TaskType
 
