@@ -17,7 +17,7 @@ import UserAvailableCreditsBadge from './UserAvailableCreditsBadge'
 
 const routes = [
   {
-    href: '',
+    href: '/',
     label: 'Home',
     icon: HomeIcon
   },
@@ -39,7 +39,8 @@ const routes = [
 ]
 
 export const DesktopSidebar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname().split('/')[1]
+
   const activeRoute =
     routes.find(
       route => route.href.length > 0 && pathname.includes(route.href)
